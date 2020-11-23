@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "dicionario",
-    "slug": "dicionario",
+    "name": "Dicionário Incrível",
+    "slug": "dicionario-incrivel",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
