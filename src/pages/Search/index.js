@@ -8,17 +8,18 @@ import {
   Container,
   Content,
   SearchContainer,
-  SearchTitle
 } from './styles';
 
-export default function Search() {
+export default function Search({ route }) {
+  const { searched } = route.params;
+
   return (
     <Container>
-      <Content>
-        <Header haveArrow screenTitle="Pesquisa" />
+      <Header haveArrow screenTitle="Pesquisa" />
 
+      <Content>
         <SearchContainer>
-          <SearchBar />
+          <SearchBar searched={searched} />
         </SearchContainer>
 
         <WordsList title="Todos os resultados" />

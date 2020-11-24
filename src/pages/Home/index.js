@@ -14,9 +14,9 @@ import {
 export default function Home() {
   return (
     <Container>
+      <Header screenTitle="Tela Inicial" />
+
       <Content>
-        <Header screenTitle="Tela Inicial" />
-        
         <SearchContainer>
           <SearchTitle>Encontre uma nova palavra</SearchTitle>
           <SearchBar />

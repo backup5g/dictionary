@@ -22,5 +22,5 @@ export const Arrow = styled.TouchableOpacity`
   position: absolute;
 
   top: 32px;
-  left: 0;
+  left: 32px;
 `;

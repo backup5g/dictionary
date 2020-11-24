@@ -2,14 +2,13 @@ import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView`
   background: #FAFAFC;
-  padding: 0 32px;
 `;
 
 export const Content = styled.View`
   flex: 1;
   align-items: center;
 
-  padding-bottom: 16px;
+  padding: 0 32px 16px 32px;
 `;
 
 export const SearchContainer = styled.View`
