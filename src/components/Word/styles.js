@@ -11,6 +11,7 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Translates = styled.View`
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
 `;

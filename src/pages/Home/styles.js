@@ -6,7 +6,6 @@ export const Container = styled.ScrollView`
 
 export const Content = styled.View`
   flex: 1;
-  align-items: center;
 
   padding: 0 32px 16px 32px;
 `;

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import words from '../../mocks/words.json';
 
 import Header from '../../components/Header';
 import SearchBar from '../../components/SearchBar';
@@ -12,6 +14,14 @@ import {
 
 export default function Search({ route }) {
   const { searched } = route.params;
+  const [searchedWords, setSearchedWords] = useState();
+
+  useEffect(() => {
+    setSearchedWords(words.filter(
+      word => word.name.includes(searched) 
+        || word.primarymeaning.includes(searched)
+    ));
+  }, [searched]);
 
   return (
     <Container>
@@ -22,7 +32,7 @@ export default function Search({ route }) {
           <SearchBar searched={searched} />
         </SearchContainer>
 
-        <WordsList title="Todos os resultados" />
+        <WordsList title="Todos os resultados" words={searchedWords} />
       </Content>
     </Container>
   );

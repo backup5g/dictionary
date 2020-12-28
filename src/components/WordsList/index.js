@@ -8,46 +8,21 @@ import {
   List,
 } from './styles';
 
-export default function WordsList({ title }) {
+export default function WordsList({ title, words }) {
   return (
     <Container>
       <Title>{title}</Title>
 
       <List>
-        <Word 
-          english="Dictionary"
-          portuguese="Dicionário"
-          silables="dic - ti - o - na - ry"
-          description="[...] definition and maintenance of standards through its domain..."
-        />
-
-        <Word 
-          english="Dictionary"
-          portuguese="Dicionário"
-          silables="dic - ti - o - na - ry"
-          description="[...] definition and maintenance of standards through its domain..."
-        />
-
-        <Word 
-          english="Dictionary"
-          portuguese="Dicionário"
-          silables="dic - ti - o - na - ry"
-          description="[...] definition and maintenance of standards through its domain..."
-        />
-
-        <Word 
-          english="Dictionary"
-          portuguese="Dicionário"
-          silables="dic - ti - o - na - ry"
-          description="[...] definition and maintenance of standards through its domain..."
-        />
-
-        <Word 
-          english="Dictionary"
-          portuguese="Dicionário"
-          silables="dic - ti - o - na - ry"
-          description="[...] definition and maintenance of standards through its domain..."
-        />
+        {words && words.map(word => (
+          <Word
+            key={word.id} 
+            english={word.name}
+            portuguese={word.primarymeaning}
+            silables={word.syllabicdivision}
+            description={word.primaryexample}
+          />
+        ))}
       </List>
     </Container>
   );

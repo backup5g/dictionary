@@ -16,7 +16,7 @@ export default function Word({ english, portuguese, silables, description }) {
   const { navigate } = useNavigation();
 
   return (
-    <Container onPress={() => navigate('Details', { word: english })}>
+    <Container onPress={() => navigate('Details', { english })}>
       <Translates>
         <English>{english}</English>
         <Separator />

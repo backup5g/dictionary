@@ -27,6 +27,7 @@ export const Word = styled.Text`
 export const Info = styled.View`
   width: 100%;
 
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
 

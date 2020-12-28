@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -28,14 +28,15 @@ export default function SearchBar({ searched }) {
       
       <Input 
         value={text}
-        onChangeText={inputText => setText(inputText)}
-
+        autoCapitalize="none"
+        
         placeholder="Pesquise algo interessante" 
         placeholderTextColor="#98A4B5"
-
+        
         onFocus={() => setIconColor('#2D8EFF')}
         onBlur={handleInputBlur}
-
+        
+        onChangeText={inputText => setText(inputText)}
         onEndEditing={() => navigate('Search', { searched: text })}
       />
     </Container>

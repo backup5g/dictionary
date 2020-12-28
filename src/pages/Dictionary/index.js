@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import letters from '../../mocks/letters';
+import words from '../../mocks/words.json';
 
 import Header from '../../components/Header';
 import WordsList from '../../components/WordsList';
@@ -15,7 +16,14 @@ import {
 } from './styles';
 
 export default function Dictionary() {
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState('A');
+  const [selectedWords, setSelectedWords] = useState();
+
+  useEffect(() => {
+    setSelectedWords(words.filter(
+      word => word.name[0].toUpperCase() === selected
+    ));
+  }, [selected]);
 
   return (
     <Container>
@@ -39,7 +47,10 @@ export default function Dictionary() {
       </LettersContainer>
 
       <Content>
-        <WordsList title="Todas as palavras" />
+        <WordsList 
+          title="Todas as palavras"
+          words={selectedWords}
+        />
       </Content>
     </Container>
   );

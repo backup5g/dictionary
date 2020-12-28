@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import words from '../../mocks/words.json';
 
 import Header from '../../components/Header';
 
@@ -16,32 +18,42 @@ import {
 } from './styles';
 
 export default function Details({ route }) {
-  const { word } = route.params;
+  const { english } = route.params;
+
+  const [word, setWord] = useState();
+
+  useEffect(() => {
+    setWord(words.find(w => w.name === english));
+  }, [english]);
+
 
   return (
     <Container>
       <Header screenTitle="Detalhes" haveArrow />
 
-      <Content>
-        <Wrapper>
-          <Word>{word}</Word>
+      {word && (
+        <Content>
+          <Wrapper>
+            <Word>{word.name}</Word>
 
-          <Info>
-            <Translation>Dicionário</Translation>
-            <Separator />
-            <Silables>dic - ti - o - na - ry</Silables>
-          </Info>
-        </Wrapper>
+            <Info>
+              <Translation>{word.primarymeaning}</Translation>
+              <Separator />
+              <Silables>{word.syllabicdivision}</Silables>
+            </Info>
+          </Wrapper>
 
-        <Wrapper>
-          <Title>Significado</Title>
-          <Description>
-            [...] definition and maintenance of standards 
-            through its domain dictionary, naming standards 
-            editor and data type standards editor.
-          </Description>
-        </Wrapper>
-      </Content>
+          <Wrapper>
+            <Title>Significado</Title>
+            <Description>{word.primaryexample}</Description>
+          </Wrapper>
+
+          <Wrapper>
+            <Title>Referência</Title>
+            <Description>{word.primaryreference}</Description>
+          </Wrapper>
+        </Content>
+      )}
     </Container>
   );
 }
